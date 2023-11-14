@@ -1,0 +1,55 @@
+export const fetchRecipes = async () => {
+  const apiKey = "f2e848f81f85424ab0240a9b15ded9da";
+  const apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&tags=vegetarian,dessert`;
+
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error(`API request failed with status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.recipes;
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+    throw error;
+  }
+};
+
+// Function to display recipes in the specified container
+Is;
+
+export async function renderWithTemplate(
+  templateFn,
+  parentElement,
+  data,
+  callback,
+  position = "afterbegin",
+  clear = true,
+) {
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  const htmlString = await templateFn(data);
+  parentElement.insertAdjacentHTML(position, htmlString);
+  if (callback) {
+    callback(data);
+  }
+}
+
+function loadTemplate(path) {
+  // wait what?  we are returning a new function? this is called currying and can be very helpful.
+  return async function () {
+    const res = await fetch(path);
+    if (res.ok) {
+      const html = await res.text();
+      return html;
+    }
+  };
+}
+
+export async function loadHeaderFooter() {
+  const headerTemplateFn = loadTemplate("/partials/header.html");
+  const headerEl = document.querySelector("#main-header");
+  renderWithTemplate(headerTemplateFn, headerEl);
+}

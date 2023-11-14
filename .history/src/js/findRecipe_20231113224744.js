@@ -1,4 +1,3 @@
-import { fetchRecipes } from './utils.mjs';
-
+import { fetchRecipes } from "./utils.mjs";
 
 fetchRecipes();

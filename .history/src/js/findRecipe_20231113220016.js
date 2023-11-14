@@ -1,4 +1,4 @@
-import { fetchRecipes } from './utils.mjs';
+import { fetchRecipes } from "./utils.mjs";
 
 const displayRecipes = async () => {
   try {
@@ -7,7 +7,7 @@ const displayRecipes = async () => {
     console.log(recipes);
   } catch (error) {
     // Handle errors (e.g., display an error message to the user)
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 };
 

@@ -1,18 +1,18 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
 
 const server = http.createServer((req, res) => {
   // Assuming your index.html is in the root folder
-  const filePath = path.join(__dirname, 'index.html');
+  const filePath = path.join(__dirname, "index.html");
 
   // Read the HTML file
-  fs.readFile(filePath, 'utf8', (err, content) => {
+  fs.readFile(filePath, "utf8", (err, content) => {
     if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end('Internal Server Error');
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
     } else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.writeHead(200, { "Content-Type": "text/html" });
       res.end(content);
     }
   });

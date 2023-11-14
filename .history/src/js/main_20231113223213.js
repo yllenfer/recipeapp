@@ -2,7 +2,6 @@
 //     const apiKey = 'f2e848f81f85424ab0240a9b15ded9da';
 //     const apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&tags=vegetarian,dessert`;
 
-
 //     try {
 //         const response = await fetch(apiUrl);
 //         if (!response.ok) {
@@ -19,24 +18,28 @@
 
 // Function to display recipes in the specified container
 const displayRecipes = async () => {
-    const recipeContainer = document.getElementById('recipeContainer');
+  const recipeContainer = document.getElementById("recipeContainer");
 
-    try {
-        const recipes = await fetchRecipes();
-        
-        // Assuming recipes is an array, you can customize this based on the actual structure
-        const recipeHtml = recipes.map(recipe => `
+  try {
+    const recipes = await fetchRecipes();
+
+    // Assuming recipes is an array, you can customize this based on the actual structure
+    const recipeHtml = recipes
+      .map(
+        (recipe) => `
             <h2>${recipe.title}</h2>
             <p>${recipe.instructions}</p>
             <!-- Add more HTML elements for other recipe details as needed -->
-        `).join('');
+        `,
+      )
+      .join("");
 
-        // Insert the recipe HTML into the container
-        recipeContainer.innerHTML = recipeHtml;
-    } catch (error) {
-        // Handle errors (e.g., display an error message to the user)
-        console.error('Error:', error);
-    }
+    // Insert the recipe HTML into the container
+    recipeContainer.innerHTML = recipeHtml;
+  } catch (error) {
+    // Handle errors (e.g., display an error message to the user)
+    console.error("Error:", error);
+  }
 };
 
 // Call the function to display recipes when the page loads

@@ -1,11 +1,10 @@
-import { fetchRecipes } from './utils.mjs';
+import { fetchRecipes } from "./utils.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
-loadHeaderFooter()
+loadHeaderFooter();
 
 fetchRecipes();
 // index.js
 
-require('dotenv').config();
+require("dotenv").config();
 // Rest of your code
-

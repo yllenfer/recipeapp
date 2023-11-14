@@ -1,6 +1,5 @@
 export default {
-    server: {
-      open: '/',
-    },
-  };
-  
+  server: {
+    open: "/",
+  },
+};

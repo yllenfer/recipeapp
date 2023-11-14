@@ -1,0 +1,37 @@
+.logo {
+  width: auto;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+}
+
+input {
+  padding: 8px;
+  font-size: 1em;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+/* Add additional styles as needed */
+.testing {
+  background-color: aqua;
+}
