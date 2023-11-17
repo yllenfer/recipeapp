@@ -1,0 +1,242 @@
+.logo {
+  width: 10%;
+  height: auto;
+}
+
+h1{
+  font-size: 2.5em; 
+  color: #333; 
+  margin-bottom: 10px; 
+  font-weight: bold; 
+  text-align: center;
+}
+
+.recipe {
+  background-color: #fff; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  margin-bottom: 15px; 
+  overflow: hidden; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin: 12px;
+}
+
+.recipe h3 {
+  font-size: 1.2em; 
+  margin: 10px; 
+}
+
+.recipe a {
+  text-decoration: none;
+  color: #333; /* Dark text color */
+}
+
+
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+.main-image{
+  margin-top: 20%;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  padding: 8px;
+  font-size: 1em;
+  border-radius: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.dietContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* background-color: #ffae00; */
+  margin: 15px;
+  gap: 12px;
+  margin-top: 10%;
+}
+
+.dietLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(149, 190, 73, 0.8);
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333; /* Add your preferred text color */
+}
+
+.dietLink:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transition: background-color 0.3s ease;
+}
+
+.loader {
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    display: none;
+    position: fixed;
+    top: 37%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background: #222;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform-origin: 170px 50px;
+    border: 4px solid #333;
+    box-shadow:
+      3px 4px #0003 inset,
+      0 0 6px #0002 inset;
+    animation: panmov 0.3s ease-in-out alternate forwards;
+  }
+  
+  
+  
+
+
+.loader-container.loading .loader {
+  display: block; /* Show the loader when 'loading' class is present */
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) skew(-15deg, 15deg) rotate(-15deg);
+  width: 55px;
+  height: 53px;
+  background: #fff;
+  background-image: radial-gradient(circle 3px, #fff6 90%, transparent 10%),
+    radial-gradient(circle 12px, #ffc400 90%, transparent 10%),
+    radial-gradient(circle 12px, #ffae00 100%, transparent 0);
+  background-repeat: no-repeat;
+  background-position:
+    -4px -6px,
+    -2px -2px,
+    -1px -1px;
+  box-shadow:
+    -2px -3px #0002 inset,
+    0 0 4px #0003 inset;
+  border-radius: 47% 36% 50% 50% / 49% 45% 42% 44%;
+  animation: ylmov 0.6s ease-in-out infinite alternate;
+}
+.loader::after {
+  content: "";
+  position: absolute;
+  left: 99%;
+  top: 45%;
+  height: 15px;
+  width: 70px;
+  background: #222222;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 3px 0 3px #eee2 inset;
+  transform: rotate(5deg) translateX(3px);
+}
+
+@keyframes panmov {
+  0%,
+  10% {
+    transform: rotate(5deg);
+  }
+  90%,
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes ylmov {
+  to {
+    border-radius: 50% 36% 50% 50% / 49% 50% 45% 45%;
+    background-position:
+      -2px -4px,
+      2px 2px,
+      1px 1px;
+  }
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  /* padding: 2px; */
+  margin-top: auto;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.footer-section {
+  text-align: left;
+  flex: 1;
+  max-width: 50%;
+  box-sizing: border-box;
+  padding: 0 15px;
+  margin-left: 8%;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-p {
+  margin-right: 10%;
+}
+
+@media only screen and (min-width: 601px) {
+  nav a {
+    font-size: 18px;
+    margin-right: 10%;
+  }
+
+.main-image{
+  width: auto;
+  height: 50%;
+  margin-top: 8%;
+}
+}
