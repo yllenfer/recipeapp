@@ -9,9 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'src/index.html'),
         keto: resolve(__dirname, 'src/diets/keto.html'),
-        vegetarian: resolve(__dirname, 'src/diets/vegetarian.html'),
-        vegan: resolve(__dirname, 'src/diets/vegan.html'),
-        paleo: resolve(__dirname, 'src/diets/paleo.html'),
+        
       },
     },
   },

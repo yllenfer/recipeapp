@@ -11,7 +11,7 @@ export default defineConfig({
         keto: resolve(__dirname, 'src/diets/keto.html'),
         vegetarian: resolve(__dirname, 'src/diets/vegetarian.html'),
         vegan: resolve(__dirname, 'src/diets/vegan.html'),
-        paleo: resolve(__dirname, 'src/diets/paleo.html'),
+        : resolve(__dirname, 'src/diets/pescatarian.html'),
       },
     },
   },
