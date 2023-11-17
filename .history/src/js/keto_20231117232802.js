@@ -78,6 +78,15 @@ function saveRecipe(recipeId) {
     // Save the updated saved recipes array to local storage
     setLocalStorage('savedRecipes', savedRecipes);
 
+   //the boxes checked when they are saved in the local storage
+    const saveRecipeCheckboxes = document.querySelectorAll('.save-recipe-checkbox');
+    for (const checkbox of saveRecipeCheckboxes) {
+        if (checkbox.dataset.recipeId === recipeId) {
+            checkbox.checked = true;
+        }
+    }
+    
+
 
 }
 

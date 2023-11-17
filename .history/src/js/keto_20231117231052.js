@@ -29,7 +29,7 @@ export function displayKeto(data) {
     const recipeHtml = recipes.map(recipe => `
     <div class="recipe">
         <h3>
-            <a href="../recipe-display/recipecontainer.html?id=${recipe.id}" target="_blank">${recipe.title}</a>
+            <a href="../recipe-display/recipecontainer.html?${recipe.id}" target="_blank">${recipe.title}</a>
         </h3>
         <input type="checkbox" class="save-recipe-checkbox" data-recipe-id="${recipe.id}" />
     </div>
@@ -77,8 +77,6 @@ function saveRecipe(recipeId) {
 
     // Save the updated saved recipes array to local storage
     setLocalStorage('savedRecipes', savedRecipes);
-
-
 }
 
 // Create a function to handle the checkbox click event
@@ -103,3 +101,34 @@ function handleCheckboxClick(event) {
 
 document.getElementById('recipeContainer').addEventListener('click', handleCheckboxClick);
 
+//create a function that display the recipe information for the recipe that has been clicked on and is redirected from the keto page
+
+function displayRecipe(data) {
+    // Log the entire data to inspect its structure
+    console.log("API response data:", data);
+
+    // Assuming recipes is an array, you can customize this based on the actual structure
+    const recipes = data.results; // Adjust the key based on the API response structure
+
+    if (!Array.isArray(recipes)) {
+        console.error("Invalid data format: recipes is not an array");
+        return;
+    }
+
+    const recipeHtml = recipes.map(recipe => `
+    <div class="recipe">
+        <h3>
+            <a href="../recipe-display/recipecontainer.html?${recipe.id}" target="_blank">${recipe.title}</a>
+        </h3>
+        <input type="checkbox" class="save-recipe-checkbox" data-recipe-id="${recipe.id}" />
+    </div>
+`).join('');
+
+    // Insert the recipe HTML into the container
+    const recipeContainer = document.getElementById('recipeContainer');
+    if (recipeContainer) {
+        recipeContainer.innerHTML = recipeHtml;
+    }
+}
+
+//create a function that will redirect to the recipe page when a recipe is clicked on

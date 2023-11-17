@@ -78,6 +78,8 @@ function saveRecipe(recipeId) {
     // Save the updated saved recipes array to local storage
     setLocalStorage('savedRecipes', savedRecipes);
 
+   //the boxes checked when they are saved in the local storage
+   
 
 }
 

@@ -29,7 +29,7 @@ export function displayKeto(data) {
     const recipeHtml = recipes.map(recipe => `
     <div class="recipe">
         <h3>
-            <a href="../recipe-display/recipecontainer.html?id=${recipe.id}" target="_blank">${recipe.title}</a>
+            <a href="../recipe-display/recipecontainer.html?${recipe.id}" target="_blank">${recipe.title}</a>
         </h3>
         <input type="checkbox" class="save-recipe-checkbox" data-recipe-id="${recipe.id}" />
     </div>
@@ -44,7 +44,7 @@ export function displayKeto(data) {
 
 window.onload = function () {
 
-    const apiKey = 'f2e848f81f85424ab0240a9b15ded9da';
+    const apiKey = 'faaeb11095cf49e4a6f912aa44f9ac62';
     
     const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?diet=ketogenic&apiKey=${apiKey}`;
 
@@ -77,8 +77,6 @@ function saveRecipe(recipeId) {
 
     // Save the updated saved recipes array to local storage
     setLocalStorage('savedRecipes', savedRecipes);
-
-
 }
 
 // Create a function to handle the checkbox click event
@@ -91,11 +89,7 @@ function handleCheckboxClick(event) {
         // Save the recipe ID to local storage
         saveRecipe(target.dataset.recipeId);
         //make this function to keeep the checkbox checked after refresh if the recipe is saved
-        //saveRecipe(target.dataset.recipeId);
         
-        
-
-
     }
 }
 

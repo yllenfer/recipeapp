@@ -29,7 +29,7 @@ export function displayKeto(data) {
     const recipeHtml = recipes.map(recipe => `
     <div class="recipe">
         <h3>
-            <a href="../recipe-display/recipecontainer.html?id=${recipe.id}" target="_blank">${recipe.title}</a>
+            <a href="../recipe-display/recipecontainer.html?${recipe.id}" target="_blank">${recipe.title}</a>
         </h3>
         <input type="checkbox" class="save-recipe-checkbox" data-recipe-id="${recipe.id}" />
     </div>
@@ -77,8 +77,6 @@ function saveRecipe(recipeId) {
 
     // Save the updated saved recipes array to local storage
     setLocalStorage('savedRecipes', savedRecipes);
-
-
 }
 
 // Create a function to handle the checkbox click event
@@ -102,4 +100,6 @@ function handleCheckboxClick(event) {
 // Attach the event listener to the recipe container
 
 document.getElementById('recipeContainer').addEventListener('click', handleCheckboxClick);
+
+//create a function that display the recipe information for the recipe that has been clicked on and is redirected from the keto page
 

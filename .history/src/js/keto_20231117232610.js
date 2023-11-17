@@ -78,7 +78,7 @@ function saveRecipe(recipeId) {
     // Save the updated saved recipes array to local storage
     setLocalStorage('savedRecipes', savedRecipes);
 
-
+   //save the recipe in a 
 }
 
 // Create a function to handle the checkbox click event
