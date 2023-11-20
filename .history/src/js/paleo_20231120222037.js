@@ -2,6 +2,7 @@ import { loadHeaderFooter, displayLoader, displayRecipeAll } from "./utils.mjs";
 
 loadHeaderFooter();
 displayLoader();
+displ
 
 function displayPaleo(data) {
     // Log the entire data to inspect its structure
@@ -34,7 +35,7 @@ function displayPaleo(data) {
 
 window.onload = function () {
     // Replace 'YOUR_API_KEY' with your actual Spoonacular API key
-    const apiKey = 'faaeb11095cf49e4a6f912aa44f9ac62 ';
+    const apiKey = 'f2e848f81f85424ab0240a9b15ded9da';
     
     // Spoonacular API endpoint for recipe search
     const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?diet=paleo&apiKey=${apiKey}`;

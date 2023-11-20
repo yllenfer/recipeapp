@@ -1,3 +1,4 @@
+// recipecontainer.js
 import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
@@ -5,8 +6,8 @@ loadHeaderFooter();
 function redirectToRecipe() {
     const urlParams = new URLSearchParams(window.location.search);
     const recipeId = urlParams.get('id');
-
-    const apiKey = 'faaeb11095cf49e4a6f912aa44f9ac62';
+    console.log(recipeId);
+    const apiKey = 'faaeb11095cf49e4a6f912aa44f9ac62 ';
     const apiUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
 
     fetch(apiUrl)
@@ -16,9 +17,12 @@ function redirectToRecipe() {
             if (recipeContainer) {
                 recipeContainer.innerHTML = `
                     <h1>${data.title}</h1>
-                    <img class="recipeImage" src="${data.image}" />
-                    <p>${data.spoonacularScore}</p>
-                    <p>${data.summary}</p>  
+                    console.
+                    <img src="${data.image}" alt="${data.title}">
+                    <p>Calories: ${data.nutrition.nutrients[0].amount} ${data.nutrition.nutrients[0].unit}</p>
+                    <p>${data.summary}</p>
+                    <h2>Instructions</h2>
+                    <ol>${data.analyzedInstructions[0].steps.map(step => `<li>${step.step}</li>`).join('')}</ol>
                 `;
             }
         })
@@ -26,4 +30,3 @@ function redirectToRecipe() {
 }
 
 window.onload = redirectToRecipe;
-

@@ -18,7 +18,6 @@ function redirectToRecipe() {
                     <h1>${data.title}</h1>
                     <img class="recipeImage" src="${data.image}" />
                     <p>${data.spoonacularScore}</p>
-                    <p>${data.summary}</p>  
                 `;
             }
         })

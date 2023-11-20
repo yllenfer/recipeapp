@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 export const fetchRecipes = async () => {
-    const apiKey = process.env.API_KEY;
+    const apiKey = pro;
     const apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&tags=vegetarian,dessert`;
 
     try {
