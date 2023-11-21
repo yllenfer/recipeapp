@@ -34,7 +34,11 @@ export const displayLoader = async () => {
   loaderContainer.classList.remove('loading');
 };
 
+// Example usage:
+// Call this function when a diet is clicked
 
+
+// Call the function to display recipes when the page loads
 window.onload = displayLoader;
 
 
