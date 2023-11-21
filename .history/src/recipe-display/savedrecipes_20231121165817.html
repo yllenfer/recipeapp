@@ -1,0 +1,51 @@
+<!-- FILEPATH: /c:/Users/Yllen Fernandez/Documents/Final Project/recipeapp/src/recipe-display/savedrecipes.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Recipes</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link your CSS file here -->
+</head>
+<body>
+    <
+    <div id="saved-recipes-container">
+        <!-- Dynamically generated recipe cards will be inserted here -->
+    </div>
+
+    <script>
+        // Fetch saved recipes data from backend or local storage
+        const savedRecipes = [
+            { name: "Recipe 1", ingredients: ["Ingredient 1", "Ingredient 2"], instructions: "Step 1, Step 2, Step 3" },
+            { name: "Recipe 2", ingredients: ["Ingredient 3", "Ingredient 4"], instructions: "Step 1, Step 2, Step 3" },
+            // Add more saved recipes data as needed
+        ];
+
+        // Generate HTML for each saved recipe
+        const savedRecipesContainer = document.getElementById("saved-recipes-container");
+        savedRecipes.forEach(recipe => {
+            const recipeCard = document.createElement("div");
+            recipeCard.classList.add("recipe-card"); // Add CSS class for styling
+
+            const recipeName = document.createElement("h2");
+            recipeName.textContent = recipe.name;
+
+            const ingredientsList = document.createElement("ul");
+            recipe.ingredients.forEach(ingredient => {
+                const ingredientItem = document.createElement("li");
+                ingredientItem.textContent = ingredient;
+                ingredientsList.appendChild(ingredientItem);
+            });
+
+            const instructions = document.createElement("p");
+            instructions.textContent = recipe.instructions;
+
+            recipeCard.appendChild(recipeName);
+            recipeCard.appendChild(ingredientsList);
+            recipeCard.appendChild(instructions);
+
+            savedRecipesContainer.appendChild(recipeCard);
+        });
+    </script>
+    <footer id="main-footer"></footer>
+</body>
+</html>
