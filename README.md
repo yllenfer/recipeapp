@@ -34,3 +34,5 @@ The primary audience includes home cooks, food enthusiasts, and individuals inte
 ## Link to app
 https://enchanting-klepon-aa420e.netlify.app/
 
+## Time spent on this project
+<a href="https://wakatime.com/badge/user/18e61308-5645-4f34-a530-97a4992fad25/project/018bca03-b6f6-4453-8115-a5c12e714d1e"><img src="https://wakatime.com/badge/user/18e61308-5645-4f34-a530-97a4992fad25/project/018bca03-b6f6-4453-8115-a5c12e714d1e.svg" alt="wakatime"></a>
