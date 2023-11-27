@@ -3,15 +3,6 @@
   height: auto;
 }
 
-.savedRecipesLink li {
-  list-style: none;
-}
-
-.savedRecipesLink li a {
-  text-decoration: none;
-}
-
-
 #recipeResults {
   position: absolute;
   border: 1px solid #ddd;
@@ -27,7 +18,7 @@
   background-color: #fff;
 }
 #recipeResults div:hover {
-  background-color: #f7f7f7;
+  background-color: #9b2121;
 }
 
 h1{

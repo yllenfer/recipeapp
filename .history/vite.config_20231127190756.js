@@ -13,7 +13,7 @@ export default defineConfig({
         vegan: resolve(__dirname, 'src/diets/vegan.html'),
         paleo: resolve(__dirname, 'src/diets/paleo.html'),
         recipecontainer: resolve(__dirname, 'src/recipe-display/recipecontainer.html'),
-        savedRecipes: resolve(__dirname, '/recipe-display/savedRecipes.html'),
+        savedRecipes: resolve(__dirname, '/savedRecipes.html'),
       },
     },
   },

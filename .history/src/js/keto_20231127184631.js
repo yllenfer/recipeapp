@@ -80,7 +80,7 @@ window.onload = function () {
 
 function saveRecipe(recipeId) {
    
-    const savedRecipes = getLocalStorage('savedRecipes') || [];
+    const savedRecipes = getLocalStorage('s~avedRecipes') || [];
 
  
     if (savedRecipes.includes(recipeId)) {

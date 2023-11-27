@@ -51,27 +51,14 @@ window.onload = function () {
 
    
     fetch(apiUrl)
-        .then(response => {
-            if (response.status === 402) {
-                throw new Error('API quota exceeded');
-            } else if (response.status === 4004) {
-                throw new Error('Invalid API key');
-            }
-            return response.json();
-        })
     
+        .then(response => response.json())
         .then(data => {
         
             displayKeto(data);
         })
         .catch(error => {
             console.error("Error fetching recipes:", error);
-            const recipeContainer = document.getElementById('recipeContainer');
-            if (recipeContainer) {
-                recipeContainer.innerHTML = `
-                    <p class="error">Error fetching recipes: ${error.message}</p>
-                `;
-            }
         });
 };
 
@@ -80,7 +67,7 @@ window.onload = function () {
 
 function saveRecipe(recipeId) {
    
-    const savedRecipes = getLocalStorage('savedRecipes') || [];
+    const savedRecipes = getLocalStorage('s~avedRecipes') || [];
 
  
     if (savedRecipes.includes(recipeId)) {

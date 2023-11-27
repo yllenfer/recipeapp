@@ -3,15 +3,10 @@
   height: auto;
 }
 
-.savedRecipesLink li {
-  list-style: none;
-}
-
-.savedRecipesLink li a {
+.savedRecipesLink li{
   text-decoration: none;
+  list-style-type: none;
 }
-
-
 #recipeResults {
   position: absolute;
   border: 1px solid #ddd;

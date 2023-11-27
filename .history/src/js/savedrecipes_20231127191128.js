@@ -18,6 +18,3 @@ function displaySavedRecipes() {
     `).join('');
     }
 }
-
-window.onload = displaySavedRecipes;
-

@@ -3,15 +3,6 @@
   height: auto;
 }
 
-.savedRecipesLink li {
-  list-style: none;
-}
-
-.savedRecipesLink li a {
-  text-decoration: none;
-}
-
-
 #recipeResults {
   position: absolute;
   border: 1px solid #ddd;
@@ -109,7 +100,7 @@ nav a {
   font-size: 20px;
   border-radius: 8px;
   text-decoration: none;
-  color: #333; 
+  color: #333; /* Add your preferred text color */
   font-weight: lighter;
 }
 
@@ -119,8 +110,8 @@ nav a {
 }
 
 .loader {
-    width: 200px; 
-    height: 200px; 
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
     display: none;
     position: fixed;
     top: 37%;
@@ -225,7 +216,7 @@ footer {
 
 footer {
   background-color: #333;
-  color: #fff;
+  /* color: #fff; */
   padding: 20px 0;
 }
 

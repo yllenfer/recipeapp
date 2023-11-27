@@ -67,11 +67,6 @@ window.onload = function () {
         .catch(error => {
             console.error("Error fetching recipes:", error);
             const recipeContainer = document.getElementById('recipeContainer');
-            if (recipeContainer) {
-                recipeContainer.innerHTML = `
-                    <p class="error">Error fetching recipes: ${error.message}</p>
-                `;
-            }
         });
 };
 
@@ -80,7 +75,7 @@ window.onload = function () {
 
 function saveRecipe(recipeId) {
    
-    const savedRecipes = getLocalStorage('savedRecipes') || [];
+    const savedRecipes = getLocalStorage('s~avedRecipes') || [];
 
  
     if (savedRecipes.includes(recipeId)) {

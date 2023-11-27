@@ -3,15 +3,6 @@
   height: auto;
 }
 
-.savedRecipesLink li {
-  list-style: none;
-}
-
-.savedRecipesLink li a {
-  text-decoration: none;
-}
-
-
 #recipeResults {
   position: absolute;
   border: 1px solid #ddd;
@@ -120,7 +111,7 @@ nav a {
 
 .loader {
     width: 200px; 
-    height: 200px; 
+    height: 200px; /* Adjust the height as needed */
     display: none;
     position: fixed;
     top: 37%;

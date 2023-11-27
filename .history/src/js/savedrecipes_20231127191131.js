@@ -19,5 +19,3 @@ function displaySavedRecipes() {
     }
 }
 
-window.onload = displaySavedRecipes;
-
