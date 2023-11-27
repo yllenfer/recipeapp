@@ -361,7 +361,10 @@ footer {
 
 }
 
+img .recipeImage{
+background-color: #fff;
 
+}
 .recipeRating {
   font-weight: bold;
   margin-left: 20px;

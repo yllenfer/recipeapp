@@ -361,12 +361,11 @@ footer {
 
 }
 
-
 .recipeRating {
   font-weight: bold;
   margin-left: 20px;
   font-size: 25px;
-  
+  padding: 2%;
 
 }
 
@@ -375,7 +374,7 @@ footer {
   margin-right: 20px;
   letter-spacing: normal;
   font-size: 25px;
-  
+  padding: 2%;
 
 
 }

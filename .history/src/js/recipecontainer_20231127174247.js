@@ -16,16 +16,13 @@ function redirectToRecipe() {
             const recipeContainer = document.getElementById('recipeContainer');
             if (recipeContainer) {
                 recipeContainer.innerHTML = `
-                <link rel="shortcut icon" href="${data.image}" />
                     <h1 class="recipeDisplayTitle">${data.title}</h1>
                     <img class="recipeImage" src="${data.image}" />
-                    <p class="recipeRating">Rating: ${data.spoonacularScore.toFixed(1)}</p>
-                    <p class="recipeSummary">${data.summary}</p>  
+                    <p class="recipeRating">Rating: ${data.spoonacularScore}</p>
+                    <p>${data.summary}</p>  
                 `;
             }
         })
-        
-
         .catch(error => console.error("Error fetching recipe:", error));
 }
 

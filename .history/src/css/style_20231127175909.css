@@ -354,19 +354,18 @@ footer {
 .recipeImage{
   width: 40%;
   height: auto;
-  margin-top: 2%;
+  margin-top: 8%;
   margin-left: 30%;
   margin-bottom: 10px;
   margin-right: 30%;
 
 }
 
-
 .recipeRating {
   font-weight: bold;
   margin-left: 20px;
   font-size: 25px;
-  
+  padding: 2%;
 
 }
 
@@ -375,7 +374,7 @@ footer {
   margin-right: 20px;
   letter-spacing: normal;
   font-size: 25px;
-  
+  padding: 2%;
 
 
 }

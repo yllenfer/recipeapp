@@ -282,16 +282,11 @@ footer {
 
 .recipeRating {
   font-weight: bold;
-  margin-left: 20px;
-  font-size: large;
 }
 
 .recipeSummary {
   margin-left: 20px;
-  margin-right: 20px;
-  letter-spacing: normal;
-  font-size: 18px;
-  
+  ma
 }
 
 @media only screen and (min-width: 601px) {
@@ -341,42 +336,5 @@ footer {
 
 .logo {
   width: 20%;
-}
-
-
-/* css for laptop for recipe page */
-/* //centering the recipe title */
-.recipeDisplayTitle {
-  margin-left: 40%;
-  font-size: 50px;
-}
-
-.recipeImage{
-  width: 40%;
-  height: auto;
-  margin-top: 2%;
-  margin-left: 30%;
-  margin-bottom: 10px;
-  margin-right: 30%;
-
-}
-
-
-.recipeRating {
-  font-weight: bold;
-  margin-left: 20px;
-  font-size: 25px;
-  
-
-}
-
-.recipeSummary {
-  margin-left: 20px;
-  margin-right: 20px;
-  letter-spacing: normal;
-  font-size: 25px;
-  
-
-
 }
 }

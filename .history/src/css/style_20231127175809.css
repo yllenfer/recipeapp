@@ -347,6 +347,7 @@ footer {
 /* css for laptop for recipe page */
 /* //centering the recipe title */
 .recipeDisplayTitle {
+  background-color: aqua;
   margin-left: 40%;
   font-size: 50px;
 }
@@ -354,20 +355,18 @@ footer {
 .recipeImage{
   width: 40%;
   height: auto;
-  margin-top: 2%;
+  margin-top: 8%;
   margin-left: 30%;
   margin-bottom: 10px;
   margin-right: 30%;
 
 }
 
-
 .recipeRating {
   font-weight: bold;
   margin-left: 20px;
-  font-size: 25px;
-  
-
+  font-size: large;
+  background-color: blue;
 }
 
 .recipeSummary {
@@ -375,8 +374,7 @@ footer {
   margin-right: 20px;
   letter-spacing: normal;
   font-size: 25px;
-  
-
+  background-color: blue;
 
 }
 }
