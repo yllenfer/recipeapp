@@ -24,7 +24,7 @@ export function displayVegan(data) {
     </div>
 `).join('');
 
-
+    // Insert the recipe HTML into the container
     const recipeContainer = document.getElementById('recipeContainer');
     if (recipeContainer) {
         recipeContainer.innerHTML = recipeHtml;
@@ -33,7 +33,7 @@ export function displayVegan(data) {
 
 window.onload = function () {
 
-
+    //Use the api from my .env file creted in the root folder, create the variable and use it in the fetch
     
 
 

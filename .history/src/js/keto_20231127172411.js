@@ -49,7 +49,7 @@ window.onload = function () {
     
     const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?diet=ketogenic&apiKey=${apiKey}`;
 
-   
+    // Fetch data from the Spoonacular API
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -76,7 +76,7 @@ function saveRecipe(recipeId) {
 
     savedRecipes.push(recipeId);
 
-
+    // Save the updated saved recipes array to local storage
     setLocalStorage('savedRecipes', savedRecipes);
 
 

@@ -33,7 +33,7 @@ export function displayVegan(data) {
 
 window.onload = function () {
 
-
+    //Use the api from my .env file creted in the root folder, create the variable and use it in the fetch
     
 
 

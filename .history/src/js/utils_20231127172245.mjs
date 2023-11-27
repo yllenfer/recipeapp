@@ -23,13 +23,12 @@ export const fetchRecipes = async () => {
 export const displayLoader = async () => {
   const loaderContainer = document.querySelector('.loader-container');
 
- 
+  // Show the loader
   loaderContainer.classList.add('loading');
-
 
   await new Promise(resolve => setTimeout(resolve, 2000));
 
-
+  // Hide the loader
   loaderContainer.classList.remove('loading');
 };
 

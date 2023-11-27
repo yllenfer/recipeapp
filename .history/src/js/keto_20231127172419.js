@@ -49,7 +49,7 @@ window.onload = function () {
     
     const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?diet=ketogenic&apiKey=${apiKey}`;
 
-   
+\
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {

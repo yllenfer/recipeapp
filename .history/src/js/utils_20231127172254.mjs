@@ -23,7 +23,7 @@ export const fetchRecipes = async () => {
 export const displayLoader = async () => {
   const loaderContainer = document.querySelector('.loader-container');
 
- 
+  // Show the loader
   loaderContainer.classList.add('loading');
 
 
