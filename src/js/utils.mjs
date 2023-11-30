@@ -20,41 +20,49 @@ export const fetchRecipes = async () => {
 
 
 
-export const displayLoader = async () => {
-  const loaderContainer = document.querySelector('.loader-container');
+// export const displayLoader = async () => {
+//   const loaderContainer = document.querySelector('.loader-container');
 
  
-  loaderContainer.classList.add('loading');
+//   loaderContainer.classList.add('loading');
 
 
-  await new Promise(resolve => setTimeout(resolve, 2000));
+//   await new Promise(resolve => setTimeout(resolve, 2000));
 
 
-  loaderContainer.classList.remove('loading');
-};
+//   loaderContainer.classList.remove('loading');
+// };
 
 
-window.onload = displayLoader;
+// window.onload = displayLoader;
 
 
+// Removed displayLoader function entirely
 
+// Modify the renderWithTemplate function as needed
 export async function renderWithTemplate(
-    templateFn,
-    parentElement,
-    data,
-    callback,
-    position = "afterbegin",
-    clear = true
-  ) {
-    if (clear) {
+  templateFn,
+  parentElement,
+  data,
+  callback,
+  position = "afterbegin",
+  clear = true
+) {
+  if (clear) {
       parentElement.innerHTML = "";
-    }
-    const htmlString = await templateFn(data);
-    parentElement.insertAdjacentHTML(position, htmlString);
-    if (callback) {
-      callback(data);
-    }
   }
+  const htmlString = await templateFn(data); // Make sure templateFn is defined and returns a string of HTML
+  parentElement.insertAdjacentHTML(position, htmlString);
+  if (callback) {
+      callback(data);
+  }
+}
+
+// Remove window.onload assignment to displayLoader since it's removed
+// If you need to do something on window.onload, define it accordingly
+window.onload = () => {
+// Your code that needs to run when the window loads
+};
 
 
 export function loadTemplate(path) {

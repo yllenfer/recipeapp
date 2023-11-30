@@ -1,17 +1,17 @@
-import { loadHeaderFooter,getLocalStorage, setLocalStorage, displayLoader } from "./utils.mjs";
+import { loadHeaderFooter,getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 
 loadHeaderFooter();
-displayLoader();
+
 
 document.getElementById('recipeContainer').addEventListener('click', function(event) {
     const target = event.target;
 
-    // Check if the clicked element is a recipe link
+    
     if (target.tagName === 'A' && target.dataset.recipeId) {
         event.preventDefault();
 
-        // Redirect to the specific recipe URL
+       
         redirectToRecipe(target.dataset.recipeId);
     }
 });
