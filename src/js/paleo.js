@@ -1,7 +1,7 @@
-import { loadHeaderFooter, displayLoader } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
-displayLoader();
+
 
 export function displayPaleo(data) {
     // Log the entire data to inspect its structure

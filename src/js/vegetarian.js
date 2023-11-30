@@ -1,7 +1,7 @@
 // vegetarian.js
-import { displayLoader, loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 loadHeaderFooter();
-displayLoader();
+
 
 export function displayVegetarian(data) {
     // Log the entire data to inspect its structure
