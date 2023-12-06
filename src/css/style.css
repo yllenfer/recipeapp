@@ -3,6 +3,12 @@
   height: auto;
 }
 
+
+.loginImage{
+  width: 15%;
+  margin-left: 10%;
+}
+
 .savedRecipesLink{
   font-size: 18px;
   text-decoration: none;

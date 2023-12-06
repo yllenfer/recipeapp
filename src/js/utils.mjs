@@ -97,41 +97,7 @@ export function getParam(param) {
 
 
 
-export function initializeRecipeSearch(apiKey) {
-  console.log('Initializing recipe search');
-  const searchInput = document.getElementById('searchForRecipe');
-  const recipeResults = document.getElementById('recipeResults');
 
-  console.log('Initializing recipe search', searchInput, recipeResults);
-
-  let searchTimeout;
-
-  searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value;
-
-    // Clear any previous search timeout
-    clearTimeout(searchTimeout);
-
-    searchTimeout = setTimeout(() => {
-      const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchTerm}`;
-
-      fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          recipeResults.innerHTML = '';
-
-          data.results.forEach(recipe => {
-            const recipeElement = document.createElement('div');
-            recipeElement.textContent = recipe.title;
-            recipeResults.appendChild(recipeElement);
-          });
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    }, 300); 
-  });
-}
 
 
 export function loadSavedRecipes() {

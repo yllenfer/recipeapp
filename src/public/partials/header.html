@@ -13,10 +13,47 @@
   <input id="searchForRecipe" type="text" placeholder="Search for recipe" autocomplete="on" />
 
 
-<a class="savedRecipesLink" href="/recipe-display/savedrecipes.html">Saved Recipes</a>
+<a class="savedRecipesLink" href="/recipe-display/savedrecipes.html">Saved Recipes</a> 
+<img class="loginImage" href="/src/user/login.html" src="/images/login.png" alt="Login image"/>
+
 </nav>
 
 <div id="recipeResults"></div>
 
 
+<script>
+function initializeRecipeSearch(apiKey) {
+  console.log('Initializing recipe search');
+  const searchInput = document.getElementById('searchForRecipe');
+  const recipeResults = document.getElementById('recipeResults');
 
+  console.log('Initializing recipe search', searchInput, recipeResults);
+
+  let searchTimeout;
+
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value;
+
+    // Clear any previous search timeout
+    clearTimeout(searchTimeout);
+
+    searchTimeout = setTimeout(() => {
+      const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchTerm}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          recipeResults.innerHTML = '';
+
+          data.results.forEach(recipe => {
+            const recipeElement = document.createElement('div');
+            recipeElement.textContent = recipe.title;
+            recipeResults.appendChild(recipeElement);
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }, 300); 
+  });
+}</script>
