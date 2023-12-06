@@ -12,9 +12,10 @@ function displaySavedRecipes() {
             console.log(savedRecipes);
             recipeContainer.innerHTML = savedRecipes.map(recipe => `
             <div class="recipe">
-                <h3>
-              <a href=""> ${recipe.title} </a>  
-                </h3?
+            <h3>
+            <a href="../recipe-display/recipecontainer.html?id=${recipe.id}" target="_blank">${recipe.title} </a>  
+        </h3> 
+        
               
             </div>
         `).join('');
