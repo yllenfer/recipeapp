@@ -57,7 +57,7 @@ document.getElementById('recipeContainer').addEventListener('click', handleCheck
 window.onload = function () {
     const apiKey = 'faaeb11095cf49e4a6f912aa44f9ac62';
 
-    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?diet=paleo&apiKey=${apiKey}`;
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?diet=ketogenic&apiKey=${apiKey}`;
 
     fetch(apiUrl)
         .then(response => {
