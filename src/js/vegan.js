@@ -1,6 +1,7 @@
-import { loadHeaderFooter, getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter, loadSavedRecipes, handleCheckboxClick, initializeCheckboxStates } from "./utils.mjs";
 
 loadHeaderFooter();
+
 
 document.getElementById('recipeContainer').addEventListener('click', function(event) {
     const target = event.target;
@@ -14,11 +15,8 @@ document.getElementById('recipeContainer').addEventListener('click', function(ev
 });
 
 
-function loadSavedRecipes() {
-    return getLocalStorage('savedRecipes') || [];
-}
 
-export function displayKeto(data) {
+export function displayVegan(data) {
     console.log("API response data:", data);
 
     const recipes = data.results;
@@ -51,41 +49,10 @@ export function displayKeto(data) {
 }
 
 
-function initializeCheckboxStates(savedRecipes) {
-    savedRecipes.forEach(recipeId => {
-        const checkbox = document.querySelector(`input[data-recipe-id="${recipeId}"]`);
-        if (checkbox) {
-            checkbox.checked = true;
-        }
-    });
-}
-
-
-function saveRecipe(recipeId) {
-    const savedRecipes = loadSavedRecipes();
-
-    if (savedRecipes.includes(recipeId)) {
-        document.querySelector(`input[data-recipe-id="${recipeId}"]`).checked = true;
-        alert('This recipe is already saved');
-        return;
-    }
-
-    savedRecipes.push(recipeId);
-
-
-    setLocalStorage('savedRecipes', savedRecipes);
-}
 
 
 document.getElementById('recipeContainer').addEventListener('click', handleCheckboxClick);
 
-function handleCheckboxClick(event) {
-    const target = event.target;
-
-    if (target.tagName === 'INPUT' && target.type === 'checkbox' && target.dataset.recipeId) {
-        saveRecipe(target.dataset.recipeId);
-    }
-}
 
 
 window.onload = function () {
@@ -97,14 +64,14 @@ window.onload = function () {
         .then(response => {
             if (response.status === 402) {
                 throw new Error('API quota exceeded');
-            } else if (response.status === 4004) {
+            } else if (response.status === 404) {
                 throw Error('Invalid API key');
             }
             return response.json();
         })
 
         .then(data => {
-            displayKeto(data);
+            displayVegan(data);
         })
         .catch(error => {
             console.error("Error fetching recipes:", error);

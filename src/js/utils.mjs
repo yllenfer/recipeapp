@@ -1,28 +1,3 @@
-
-export const fetchRecipes = async () => {
-    const apiKey = process.env.API_KEY;
-    const apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&number=1&tags=vegetarian,dessert`;
-
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`API request failed with status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        return data.recipes; // This line returns an array of recipes
-    } catch (error) {
-        console.error('Error fetching recipes:', error);
-        throw error;
-    }
-};
-
-
-
-
-
-
-
 export async function renderWithTemplate(
   templateFn,
   parentElement,
@@ -93,33 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-//Function to fetch recipe details by ID
-export async function fetchRecipeDetails() {
-    const apiKey = 'your_api_key'; // Replace with your actual API key
-    const recipeId = getRecipeIdFromURL();
 
-    if (!recipeId) {
-        console.error('Recipe ID not found in the URL.');
-        return null;
-    }
 
-    const apiUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
-
-    // Fetch data from the Spoonacular API
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-        throw new Error(`API request failed with status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data; // This should be an object representing a single recipe
-}
-
-// Function to extract recipe ID from the URL
-function getRecipeIdFromURL() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('id');
-}
 
 
 // retrieve data from localstorage
@@ -162,7 +112,6 @@ export function initializeRecipeSearch(apiKey) {
     // Clear any previous search timeout
     clearTimeout(searchTimeout);
 
-    // Set a new search timeout to delay the request by 300 milliseconds (adjust as needed)
     searchTimeout = setTimeout(() => {
       const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${searchTerm}`;
 
@@ -180,6 +129,60 @@ export function initializeRecipeSearch(apiKey) {
         .catch(error => {
           console.error('Error:', error);
         });
-    }, 300); // Adjust the delay time as needed (e.g., 300 milliseconds)
+    }, 300); 
   });
+}
+
+
+export function loadSavedRecipes() {
+  return getLocalStorage('savedRecipes') || [];
+}
+
+export function saveRecipe(recipeId, recipeTitle) {
+  const savedRecipes = loadSavedRecipes();
+
+
+  if (savedRecipes.some(recipe => recipe.id === recipeId)) {
+      document.querySelector(`input[data-recipe-id="${recipeId}"]`).checked = true;
+      alert('This recipe is already saved');
+      return;
+  }
+
+
+  savedRecipes.push({ id: recipeId, title: recipeTitle });
+  setLocalStorage('savedRecipes', savedRecipes);
+}
+
+
+export function initializeCheckboxStates(savedRecipes) {
+  savedRecipes.forEach(recipe => {
+      const checkbox = document.querySelector(`input[data-recipe-id="${recipe.id}"]`);
+      if (checkbox) {
+          checkbox.checked = true;
+      }
+  });
+}
+
+
+
+export function handleCheckboxClick(event) {
+  const target = event.target;
+
+  if (target.tagName === 'INPUT' && target.type === 'checkbox') {
+      const recipeId = target.dataset.recipeId;
+      const recipeTitle = target.closest('.recipe').querySelector('h3 a').textContent;
+
+      if (target.checked) {
+          saveRecipe(recipeId, recipeTitle);
+      } else {
+          removeRecipe(recipeId);
+      }
+  }
+}
+
+
+function removeRecipe(recipeId) {
+  let savedRecipes = loadSavedRecipes();
+  savedRecipes = savedRecipes.filter(recipe => recipe.id !== recipeId);
+  setLocalStorage('savedRecipes', savedRecipes);
 }

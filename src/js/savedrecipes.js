@@ -1,22 +1,28 @@
-import { loadHeaderFooter} from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
 function displaySavedRecipes() {
-    const savedRecipes = getLocalStorage('savedRecipes');
+    const savedRecipesData = localStorage.getItem('savedRecipes');
+    const savedRecipes = savedRecipesData ? JSON.parse(savedRecipesData) : [];
     const recipeContainer = document.getElementById('recipeContainer');
 
     if (recipeContainer) {
-        recipeContainer.innerHTML = savedRecipes.map(recipe => `
-        <div class="recipe">
-            <h3>
-                <a href="../recipe-display/recipecontainer.html?id=${recipe.id}" target="_blank">${recipe.title}</a>
-            </h3>
-            <input type="checkbox" class="save-recipe-checkbox" data-recipe-id="${recipe.id}" />
-        </div>
-    `).join('');
+        if (savedRecipes.length > 0) {
+            console.log(savedRecipes);
+            recipeContainer.innerHTML = savedRecipes.map(recipe => `
+            <div class="recipe">
+                <h3>
+              <a href=""> ${recipe.title} </a>  
+                </h3?
+              
+            </div>
+        `).join('');
+        
+        } else {
+            recipeContainer.innerHTML = `<p class="noRecipes">You have no saved recipes.</p>`;
+        }
     }
 }
 
 window.onload = displaySavedRecipes;
-

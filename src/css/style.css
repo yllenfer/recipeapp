@@ -91,6 +91,13 @@ h1{
 }
 
 
+.noRecipes {
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+ 
+}
 
 
 .recipe {
@@ -317,6 +324,12 @@ footer {
   margin-left: 15%;
   margin-bottom: 10px;
 }
+
+.noRecipes {
+margin-left: 40%;
+ 
+}
+
 
 .dietContainer{
   margin-top: 5%;
