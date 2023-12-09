@@ -29,6 +29,56 @@
 }
 
 
+.registerFormClass {
+  width: 70%; 
+  margin: 0 auto; 
+  padding: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  background-color: #fff; 
+}
+
+
+.registerFormClass label {
+  display: block; 
+  margin-bottom: 10px; 
+}
+
+
+.registerFormClass input[type="text"],
+.registerFormClass input[type="email"],
+.registerFormClass input[type="password"] {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 3px; 
+  transition: border-color 0.3s; 
+}
+
+
+.registerFormClass input[type="text"]:focus,
+.registerFormClass input[type="email"]:focus,
+.registerFormClass input[type="password"]:focus {
+  border-color: #007bff; 
+}
+
+
+.registerFormClass button[type="submit"] {
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 3px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+
+.registerFormClass button[type="submit"]:hover {
+  background-color: #0056b3; 
+}
 
 #searchForRecipe {
   width: 150px; 
@@ -207,12 +257,14 @@ footer {
   color: #fff;
   padding: 20px 0;
   text-align: center;
+  margin-top: 10%;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-around;
   font-size: larger;
+ 
   
 }
 

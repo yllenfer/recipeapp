@@ -1,3 +1,5 @@
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
 export async function renderWithTemplate(
   templateFn,
   parentElement,
@@ -152,3 +154,21 @@ function removeRecipe(recipeId) {
   savedRecipes = savedRecipes.filter(recipe => recipe.id !== recipeId);
   setLocalStorage('savedRecipes', savedRecipes);
 }
+
+
+
+
+
+
+// Export the toggleSavedRecipesLinkVisibility function and other utility functions
+export function toggleSavedRecipesLinkVisibility(user) {
+  const savedRecipesLinkContainer = document.getElementById("savedRecipesLinkContainer");
+  
+  if (user) {
+    savedRecipesLinkContainer.style.display = "block";
+  } else {
+    savedRecipesLinkContainer.style.display = "none";
+  }
+}
+
+
