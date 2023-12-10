@@ -1,20 +1,17 @@
 import { loadHeaderFooter, loadSavedRecipes, handleCheckboxClick, initializeCheckboxStates } from "./utils.mjs";
+import { auth } from "./firebaseAuth.mjs"; // Import the auth object from your module
 
 loadHeaderFooter();
 
-
-document.getElementById('recipeContainer').addEventListener('click', function(event) {
+document.getElementById('recipeContainer').addEventListener('click', function (event) {
     const target = event.target;
 
- 
     if (target.tagName === 'A' && target.dataset.recipeId) {
         event.preventDefault();
 
         redirectToRecipe(target.dataset.recipeId);
     }
 });
-
-
 
 export function displayVegerarian(data) {
     console.log("API response data:", data);
@@ -26,34 +23,35 @@ export function displayVegerarian(data) {
         return;
     }
 
-   
     const savedRecipes = loadSavedRecipes();
 
-    const recipeHtml = recipes.map(recipe => {
-        const isChecked = savedRecipes.includes(recipe.id);
-        return `<div class="recipe">
-    <h3>
-        <a href="../recipe-display/recipecontainer.html?id=${recipe.id}" target="_blank">${recipe.title}</a>
-    </h3>
-    <input type="checkbox" class="save-recipe-checkbox" data-recipe-id="${recipe.id}" />
-</div>`
-    }).join('');
+    const recipeHtml = recipes
+        .map((recipe) => {
+            const isChecked = savedRecipes.includes(recipe.id);
+            return `<div class="recipe">
+                <h3>
+                    <a href="../recipe-display/recipecontainer.html?id=${recipe.id}" target="_blank">${recipe.title}</a>
+                </h3>
+                ${
+                    auth.currentUser
+                        ? `<input type="checkbox" class="save-recipe-checkbox" data-recipe-id="${recipe.id}" />`
+                        : ''
+                }
+            </div>`;
+        })
+        .join('');
 
     const recipeContainer = document.getElementById('recipeContainer');
     if (recipeContainer) {
         recipeContainer.innerHTML = recipeHtml;
     }
-    
-    
-    initializeCheckboxStates(savedRecipes);
+
+    if (auth.currentUser) {
+        initializeCheckboxStates(savedRecipes);
+    }
 }
 
-
-
-
 document.getElementById('recipeContainer').addEventListener('click', handleCheckboxClick);
-
-
 
 window.onload = function () {
     const apiKey = 'faaeb11095cf49e4a6f912aa44f9ac62';
@@ -61,7 +59,7 @@ window.onload = function () {
     const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?diet=vegetarian&apiKey=${apiKey}`;
 
     fetch(apiUrl)
-        .then(response => {
+        .then((response) => {
             if (response.status === 402) {
                 throw new Error('API quota exceeded');
             } else if (response.status === 404) {
@@ -70,10 +68,10 @@ window.onload = function () {
             return response.json();
         })
 
-        .then(data => {
+        .then((data) => {
             displayVegerarian(data);
         })
-        .catch(error => {
+        .catch((error) => {
             console.error("Error fetching recipes:", error);
             const recipeContainer = document.getElementById('recipeContainer');
             if (recipeContainer) {
@@ -83,3 +81,7 @@ window.onload = function () {
             }
         });
 };
+
+
+// I modified this part to remove the checkboex is user is not logged in
+//Need to  figure out how to stay logged in with this user logo

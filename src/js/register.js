@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/1
 
 loadHeaderFooter();
 
-document.getElementById("loginForm").addEventListener("submit", function (e) {
+document.getElementById("registerForm").addEventListener("submit", function (e) {
   e.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;

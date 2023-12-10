@@ -156,19 +156,10 @@ function removeRecipe(recipeId) {
 }
 
 
-
-
-
-
-// Export the toggleSavedRecipesLinkVisibility function and other utility functions
-export function toggleSavedRecipesLinkVisibility(user) {
-  const savedRecipesLinkContainer = document.getElementById("savedRecipesLinkContainer");
-  
-  if (user) {
-    savedRecipesLinkContainer.style.display = "block";
-  } else {
-    savedRecipesLinkContainer.style.display = "none";
+// utils.mjs
+export function toggleSavedRecipesLinkVisibility(show) {
+  const savedRecipesLink = document.querySelector(".savedRecipesLink");
+  if (savedRecipesLink) {
+    savedRecipesLink.style.display = show ? "block" : "none";
   }
 }
-
-

@@ -29,6 +29,9 @@
 }
 
 
+
+
+
 .registerFormClass {
   width: 70%; 
   margin: 0 auto; 
@@ -93,6 +96,10 @@
 }
 
 
+.userNameLogin{
+  font-size: 25px;
+  margin-left: 30%;
+}
 #searchForRecipe:focus {
   outline: none; 
   border: 1px solid #4CAF50; 
@@ -168,6 +175,12 @@ h1{
   content: '\2713'; 
   font-size: 24px; 
  
+}
+
+.logoutLink{
+  margin-left: 40%;
+  margin-top: 10%;
+  font-size: 25px;
 }
 
 
@@ -257,7 +270,7 @@ footer {
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 30%;
 }
 
 .footer-container {
@@ -366,10 +379,6 @@ footer {
     
   }
 
-  h1{
-    margin-left: 20%;
-  }
-
 .main-image{
   width: 70%;
   height: 50%;
@@ -382,6 +391,7 @@ footer {
 margin-left: 40%;
  
 }
+
 
 
 .dietContainer{

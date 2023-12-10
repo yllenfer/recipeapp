@@ -17,6 +17,7 @@ export default defineConfig({
         register: resolve(__dirname, 'src/user/register.html'),
         profile: resolve(__dirname, 'src/user/profile.html'),
         login: resolve(__dirname, 'src/user/login.html'),
+        header: resolve(__dirname, 'src/public/partials/header.html'), 
       },
     },
   },

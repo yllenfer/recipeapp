@@ -6,6 +6,8 @@ loadHeaderFooter();
 
 document.addEventListener("DOMContentLoaded", () => {
   const userDisplayName = document.getElementById("userDisplayName");
+  const loginImageLink = document.getElementById("loginImageLink");
+  const savedRecipesLink = document.querySelector(".savedRecipesLink");
 
   // Add an event listener for the logout button
   document.getElementById("logout").addEventListener("click", function (e) {
@@ -21,6 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
+
+  if (loginImageLink) {
+    loginImageLink.style.backgroundColor = "lightblue";
+  
+  }else{
+    console.log("loginImageLink is null");
+  }
+
   auth.onAuthStateChanged((user) => {
     if (user) {
       const displayName = user.displayName;
@@ -29,6 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
         userDisplayName.textContent = `Welcome, ${displayName}`;
       } else {
         userDisplayName.textContent = `Welcome, ${user.email}`;
+      }
+
+      // Check if the user is logged in
+      if (loginImageLink) {
+        loginImageLink.href = "./profile.html"; // Update the href to point to the profile page
       }
 
       const navigation = document.querySelector("nav");
@@ -40,45 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
       savedRecipesLink.textContent = "Saved Recipes";
       navigation.appendChild(savedRecipesLink);
 
-      // Create and add the new profile logo link to the navigation
-      const profileLogoLink = document.createElement("a");
-      profileLogoLink.classList.add("profile-logo-link");
-      profileLogoLink.href = "./profile.html"; // Update this link to point to your profile page
-      const profileLogoImg = document.createElement("img");
-      profileLogoImg.classList.add("logo");
-      profileLogoImg.src = "/images/login2.png"; // Update the image source path
-      profileLogoImg.alt = "Recipe logo";
-      profileLogoLink.appendChild(profileLogoImg);
-      navigation.appendChild(profileLogoLink);
-
-      // Update the visibility of logo links
-      const logoLink = document.querySelector(".logo-link");
-      if (logoLink) {
-        logoLink.style.display = "none"; // Hide the regular logo link
-      }
-
       toggleSavedRecipesLinkVisibility(true);
     } else {
       console.log("User not logged in");
 
-      const navigation = document.querySelector("nav");
+      // Check if the user is not logged in
+      if (loginImageLink) {
+        loginImageLink.href = "/user/register.html"; // Update the href to point to the registration page
+      }
 
-      // Remove the "Saved Recipes" link from the navigation
-      const savedRecipesLink = document.querySelector(".savedRecipesLink");
+      // Hide the "Saved Recipes" link
       if (savedRecipesLink) {
-        navigation.removeChild(savedRecipesLink);
-      }
-
-      // Remove the new profile logo link from the navigation
-      const profileLogoLink = document.querySelector(".profile-logo-link");
-      if (profileLogoLink) {
-        navigation.removeChild(profileLogoLink);
-      }
-
-      // Update the visibility of logo links
-      const logoLink = document.querySelector(".logo-link");
-      if (logoLink) {
-        logoLink.style.display = "block"; // Show the regular logo link
+        savedRecipesLink.style.display = "none";
       }
 
       toggleSavedRecipesLinkVisibility(false);
@@ -86,9 +74,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Replace the history state
-  window.history.replaceState("./profile.html", "./profile.html", "./profile.html");
+  window.history.replaceState({}, "", "./profile.html");
 });
 
+// Test adding a background color to the loginImageLink
+
+
+
+//TODO: Remove the checkboxes is user is not logged in
+//TODO: Have the logo for registering and logged it to be different so that when navvating through 
+//website I am not logged out
+// Make website more aesthetically pleasing
+
+
+//TODO: Remove the checkboxes is user is not logged in
+//TODO: Have the logo for registering and logged it to be different so that when navvating through 
+//website I am not logged out
+// Make website more aesthetically pleasing
 
 //TODO: Remove the checkboxes is user is not logged in
 //TODO: Have the logo for registering and logged it to be different so that when navvating through 
