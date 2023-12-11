@@ -1,12 +1,15 @@
 .logo {
-  width: 40%;
+  width: 25%;
   height: auto;
 }
 
+.welcome{
+  margin-top: 20%;
+}
 
 .loginImage{
-  width: 15%;
-  margin-left: 10%;
+  width: 25%;
+  margin-left: 30%;
 }
 
 .savedRecipesLink{
@@ -29,7 +32,13 @@
 }
 
 
-
+.loginFromIndex {
+margin-top: 15%;
+font-size: 25px;
+display: flex;
+justify-content: left;
+margin-left: -30px;
+}
 
 
 .registerFormClass {
@@ -78,6 +87,20 @@
   transition: background-color 0.3s; 
 }
 
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #pdfContent, #pdfContent * {
+    visibility: visible;
+  }
+  #pdfContent {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
 
 .registerFormClass button[type="submit"]:hover {
   background-color: #0056b3; 
@@ -98,7 +121,8 @@
 
 .userNameLogin{
   font-size: 25px;
-  margin-left: 30%;
+  margin-top: 20%;
+  margin-left: 25%;
 }
 #searchForRecipe:focus {
   outline: none; 
@@ -141,18 +165,24 @@ h1{
   margin-bottom: 15px; 
   overflow: hidden; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  margin: 12px;
+  /* margin: 12px; */
   display: block;
+  margin-top: 10%;
+  margin-left: 12px;
+  margin-right: 12px;
+  height: 80px;
 }
 
 .recipe h3 {
   font-size: 1.2em; 
-  margin: 5px; 
+  margin: 15px; 
+  
 }
 
 .recipe a {
   text-decoration: none;
   color: #333; 
+  
 }
 
 
@@ -179,11 +209,27 @@ h1{
 
 .logoutLink{
   margin-left: 40%;
-  margin-top: 10%;
+  margin-top: 30%;
   font-size: 25px;
 }
 
 
+/* CSS for the download button */
+#downloadPdfButton {
+  display: block;
+  margin: 20px auto; /* Center the button horizontally */
+  padding: 10px 20px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#downloadPdfButton:hover {
+  background-color: #0056b3; /* Hover background color */
+}
 
 
 body {
@@ -324,6 +370,8 @@ footer {
   margin-bottom: 10px; 
   font-weight: bold; 
   text-align: center;
+  margin-top: 10%;
+  padding: 12px;
 }
 
 .recipeImage{
@@ -347,6 +395,12 @@ footer {
   font-size: 18px;
   
 }
+
+#recipeContainer {
+
+  margin-bottom: 15%;
+}
+
 
 @media only screen and (min-width: 601px) {
  

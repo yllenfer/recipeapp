@@ -1,7 +1,7 @@
 import { loadHeaderFooter } from "./utils.mjs";
 import { auth } from "./firebaseAuth.mjs";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { isLoggedIn } from "./navigation.js"; // Correct the import path
+import { isLoggedIn } from "./navigation.mjs"; // Correct the import path
 
 loadHeaderFooter();
 

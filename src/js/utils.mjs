@@ -156,7 +156,7 @@ function removeRecipe(recipeId) {
 }
 
 
-// utils.mjs
+
 export function toggleSavedRecipesLinkVisibility(show) {
   const savedRecipesLink = document.querySelector(".savedRecipesLink");
   if (savedRecipesLink) {
